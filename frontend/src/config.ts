@@ -3,7 +3,13 @@
  *
  * This file contains all configuration for the frontend app.
  * Update contract addresses after deployment.
+ *
+ * Polygon RPC: set VITE_POLYGON_RPC_URL in Netlify (or .env.local) to override.
+ * Default uses PublicNode: https://polygon-bor-rpc.publicnode.com
  */
+
+const polygonRpcUrl =
+  import.meta.env.VITE_POLYGON_RPC_URL || 'https://polygon-bor-rpc.publicnode.com'
 
 export const config = {
   // Contract Addresses (update after deployment)
@@ -28,7 +34,7 @@ export const config = {
     polygon: {
       id: 137,
       name: 'Polygon Mainnet',
-      rpcUrl: 'https://polygon.llamarpc.com', // More reliable public RPC
+      rpcUrl: polygonRpcUrl,
       nativeCurrency: {
         name: 'MATIC',
         symbol: 'MATIC',

@@ -4,7 +4,7 @@
  * Configures wallet connection, chains, and Web3Modal for the app
  */
 
-import { http, createConfig, createStorage } from '@wagmi/vue'
+import { fallback, http, createConfig, createStorage } from '@wagmi/vue'
 import { polygon } from '@wagmi/vue/chains'
 import { injected, walletConnect } from '@wagmi/vue/connectors'
 import { createWeb3Modal } from '@web3modal/wagmi'
@@ -35,7 +35,11 @@ const defaultChain = config.defaultNetwork === 'polygon' ? polygon : hardhatLoca
 const wagmiConfigRaw = createConfig({
   chains: [polygon, hardhatLocal],
   transports: {
-    [polygon.id]: http(config.networks.polygon.rpcUrl),
+    [polygon.id]: fallback([
+      http(config.networks.polygon.rpcUrl),
+      http('https://1rpc.io/matic'),
+      http('https://rpc.ankr.com/polygon'),
+    ]),
     [hardhatLocal.id]: http(config.networks.hardhatLocal.rpcUrl),
   },
   connectors: [
