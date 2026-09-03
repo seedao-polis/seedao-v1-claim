@@ -42,6 +42,6 @@ compose up -d
 
 echo "→ Health"
 sleep 2
-host_port="${HOST_PORT:-3082}"
+host_port="${HOST_PORT:-3804}"
 curl -fsS "http://127.0.0.1:${host_port}/health" && echo
 echo "Done."

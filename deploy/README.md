@@ -7,7 +7,7 @@
 ```text
 Browser
   → claim-v1.seedao.xyz (宿主机 Nginx TLS)
-       → 127.0.0.1:3082 (Docker 容器 seedao-v1-claim，内嵌 Nginx SPA)
+       → 127.0.0.1:3804 (Docker 容器 seedao-v1-claim，内嵌 Nginx SPA)
 ```
 
 镜像由 GitHub Actions 构建，服务器**只拉镜像、不编译**。
@@ -18,7 +18,7 @@ Browser
 | ---- | -------------------- | ---------- | ------ |
 | 官网 v1 | `seedao-v1-web` | 3080 | `seedao-website` |
 | App | `seedao-v1-app` | 3081 | `seedao-v1-app` |
-| Claim | `seedao-v1-claim` | 3082 | `seedao-v1-claim` |
+| Claim | `seedao-v1-claim` | 3804 | `seedao-v1-claim` |
 
 ---
 
@@ -50,14 +50,14 @@ sudo certbot --nginx -d claim-v1.seedao.xyz
 
 ## 端口说明
 
-默认宿主机端口 **3082**（容器内仍为 3000），避免与同机 seedao-v1-web（3080）、seedao-v1-app（3081）冲突。
+默认宿主机端口 **3804**（容器内仍为 3000），避免与同机已占用端口（含 3802）冲突。
 
 `deploy/.env` 中 `HOST_PORT` 必须与 Nginx `proxy_pass` 一致：
 
 | 文件 | 配置 |
 | ---------------------------------------- | ----------------------------------- |
-| `deploy/.env` | `HOST_PORT=3082` |
-| `/etc/nginx/conf.d/claim-v1.seedao.xyz.conf` | `proxy_pass http://127.0.0.1:3082;` |
+| `deploy/.env` | `HOST_PORT=3804` |
+| `/etc/nginx/conf.d/claim-v1.seedao.xyz.conf` | `proxy_pass http://127.0.0.1:3804;` |
 
 ---
 
