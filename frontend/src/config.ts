@@ -4,7 +4,7 @@
  * This file contains all configuration for the frontend app.
  * Update contract addresses after deployment.
  *
- * Polygon RPC: set VITE_POLYGON_RPC_URL in Netlify (or .env.local) to override.
+ * Polygon RPC: set VITE_POLYGON_RPC_URL in Docker build args or .env.local to override.
  * Default uses PublicNode: https://polygon-bor-rpc.publicnode.com
  */
 

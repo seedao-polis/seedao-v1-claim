@@ -31,6 +31,7 @@ typechain-types
 # Environment variables
 .env
 .env.local
+deploy/.env
 
 # TypeChain
 src/types/contracts

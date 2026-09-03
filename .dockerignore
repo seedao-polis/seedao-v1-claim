@@ -1,0 +1,44 @@
+# dependencies & build
+node_modules
+frontend/node_modules
+frontend/dist
+build
+coverage
+dist
+artifacts
+cache
+typechain-types
+src/types/contracts
+
+# git / ide
+.git
+.github
+.cursor
+.vscode
+.idea
+*.md
+!README.md
+
+# env & local
+.env
+.env.local
+.env.*.local
+.DS_Store
+*.pem
+.vercel
+.netlify
+
+# contracts / hardhat (image only serves the frontend SPA)
+contracts
+scripts
+test
+hardhat.config.ts
+.openzeppelin
+
+# deploy docs / host nginx (image only needs deploy/docker/nginx.conf)
+deploy/README.md
+deploy/nginx
+deploy/pull-and-up.sh
+deploy/docker-compose.yml
+deploy/.env
+deploy/.env.example

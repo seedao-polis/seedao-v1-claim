@@ -56,8 +56,8 @@ const wagmiConfigRaw = createConfig({
             metadata: {
               name: 'SCR Conversion',
               description: 'Exchange and burn your SCR tokens for USDT at a fixed rate on Polygon',
-              url: typeof window !== 'undefined' ? window.location.origin : 'https://claim.seedao.xyz',
-              icons: [typeof window !== 'undefined' ? `${window.location.origin}/favicon.ico` : 'https://claim.seedao.xyz/favicon.ico'],
+              url: typeof window !== 'undefined' ? window.location.origin : 'https://claim-v1.seedao.xyz',
+              icons: [typeof window !== 'undefined' ? `${window.location.origin}/favicon.ico` : 'https://claim-v1.seedao.xyz/favicon.ico'],
             },
             showQrModal: false,
           }),
